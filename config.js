@@ -3,8 +3,8 @@ window.DG_CONFIG = {
   whatsapp: '5511977030517',
   precos: { landing: 'R$ 350', site: 'R$ 490' },
   googleAds: {
-    id: '', // Exemplo: AW-123456789 (use a conta de anúncios DESTA agência)
-    formConversionLabel: '', // Código da conversão de formulário SALVO
+    id: 'AW-17755074618', // Conta Google Ads escolhida: DG ELETROS
+    formConversionLabel: 'kzb3CO_Ep4sdELrgo5JC', // Código da conversão de formulário SALVO
     whatsappConversionLabel: '' // Código opcional de clique no WhatsApp
   }
 };
