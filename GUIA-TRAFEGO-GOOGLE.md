@@ -22,7 +22,7 @@
 
 **Títulos:** Criação de Sites para Empresas · Site Essencial a Partir de R$ 350 · Site Profissional a Partir de R$ 490 · Peça Sua Proposta · Seu Site Para Celular
 
-**Descrições:** Criamos um site para apresentar sua empresa e facilitar o contato dos clientes. Peça uma proposta com escopo e preço final antes de contratar. · Site essencial ou profissional com design para sua marca. Manutenção opcional a partir de R$ 35/mês, além do preço de criação.
+**Descrições:** Criamos um site para apresentar sua empresa e facilitar o contato dos clientes. Peça uma proposta com escopo e preço final antes de contratar. · Site essencial ou profissional com design para sua marca. Criação a partir de R$ 350 e manutenção mensal de R$ 35 após a publicação; confira o escopo.
 
 Os preços anunciados são **a partir de**; domínio, hospedagem e recursos extras são apresentados separadamente na proposta.
 
