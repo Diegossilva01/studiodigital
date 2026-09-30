@@ -13,16 +13,16 @@
 
 - Objetivo: **leads**; tipo: **Pesquisa**. URL final: a página publicada da Agência DG.
 - Comece por uma área que você consegue atender bem (por exemplo, São Paulo). Se o serviço é remoto para o Brasil inteiro, amplie com base nos contatos qualificados. Revise a opção de local para **Presença** caso queira evitar interesse geográfico fora da área.
-- Separe pelo menos os grupos **criação de sites** e **página de vendas**, com anúncios que repitam a oferta e os preços exibidos na página. Não anuncie entregas ou prazos que você não combinou.
-- Termos iniciais para avaliar em correspondência de frase/exata: `"criação de site profissional"`, `"empresa de criação de sites"`, `"criar site para empresa"`, `"criação de página de vendas"`, `"site para empresa preço"`. Revise o relatório de termos e adicione negativas como `grátis`, `curso`, `emprego`, `tutorial`, `template` quando não representarem compradores.
+- Separe pelo menos os grupos **site essencial de uma página** e **site profissional**, com anúncios que repitam a oferta e os preços exibidos na página. Não anuncie entregas ou prazos que você não combinou.
+- Termos iniciais para avaliar em correspondência de frase/exata: `"criação de site profissional"`, `"empresa de criação de sites"`, `"criar site para empresa"`, `"site de uma página para empresa"`, `"site para empresa preço"`. Revise o relatório de termos e adicione negativas como `grátis`, `curso`, `emprego`, `tutorial`, `template` quando não representarem compradores.
 - Configure recursos de sitelink para **Planos**, **Exemplos** e **Pedir orçamento**. Os 15 exemplos do site são conceitos ilustrativos; não os anuncie como clientes ou cases reais.
 - Estabeleça um limite diário que possa manter durante o teste. Acompanhe contatos **qualificados**, custo por lead, termos de pesquisa e resultado comercial; ajuste o orçamento com esses dados.
 
 ## Exemplo de anúncio para revisar
 
-**Títulos:** Criação de Sites Profissionais · Página de Vendas por R$ 350 · Site Profissional por R$ 490 · Peça Sua Proposta · Seu Site Para Celular
+**Títulos:** Criação de Sites para Empresas · Site Essencial a Partir de R$ 350 · Site Profissional a Partir de R$ 490 · Peça Sua Proposta · Seu Site Para Celular
 
-**Descrições:** Criamos um site para apresentar sua empresa e facilitar o contato dos clientes. Peça uma proposta com escopo e preço final antes de contratar. · Páginas de vendas e sites profissionais com design para sua marca. Atendimento em São Paulo e em todo o Brasil.
+**Descrições:** Criamos um site para apresentar sua empresa e facilitar o contato dos clientes. Peça uma proposta com escopo e preço final antes de contratar. · Site essencial ou profissional com design para sua marca. Manutenção opcional a partir de R$ 35/mês, além do preço de criação.
 
 Os preços anunciados são **a partir de**; domínio, hospedagem e recursos extras são apresentados separadamente na proposta.
 

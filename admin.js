@@ -28,7 +28,7 @@ function call(method, ...args) {
 function error(err, target='#panelMsg') {$(target).textContent=err.message;if(/Sessão expirada/.test(err.message)){store('');$('#app').hidden=true;$('#login').hidden=false;$('#loginMsg').textContent='Sua sessão expirou. Entre novamente.';contacts=[];}}
 function show() {$('#login').hidden=true;$('#app').hidden=false;}
 function node(tag,cls,text) {const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;}
-function tipoLabel(tipo) {return tipo === 'Landing page' ? 'Página de vendas' : tipo;}
+function tipoLabel(tipo) {return tipo === 'Landing page' ? 'Site essencial' : tipo === 'Sistema digital' ? 'Site com sistema' : tipo;}
 function phoneUrl(c) {let phone=c.telefone.replace(/\D/g,'');if(phone.length===10||phone.length===11)phone='55'+phone;return /^\d{10,15}$/.test(phone)?'https://wa.me/'+phone+'?text='+encodeURIComponent('Olá, '+c.nome+'! Sou da Agência DG. Recebemos sua solicitação sobre '+tipoLabel(c.tipo)+'. Podemos conversar sobre seu projeto?'):null;}
 function date(value) {const d=new Date(value);return Number.isNaN(d.getTime())?value:d.toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',dateStyle:'short',timeStyle:'short'});}
 function render() {

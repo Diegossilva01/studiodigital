@@ -61,6 +61,7 @@
   menu.addEventListener('click', () => {const active = nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(active));menu.setAttribute('aria-label',active?'Fechar menu':'Abrir menu');});
   $$('#site-nav a').forEach(link => link.addEventListener('click', () => {nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));
   $$('[data-price]').forEach(node => {const price = config.precos?.[node.dataset.price];if(price)node.textContent = price;});
+  // O Apps Script publicado ainda aceita os códigos legados Landing page/Sistema digital.
   $$('.button-plan').forEach(link => link.addEventListener('click', () => {$('#brief-form select[name="tipo"]').value = link.dataset.plan;const notice = $('#selected-plan');notice.textContent = `Plano escolhido: ${link.dataset.planLabel}. Complete os dados abaixo para enviar sua solicitação.`;notice.hidden = false;}));
   $('#year').textContent = new Date().getFullYear();
   const whatsappButton = $('#whatsapp-contact');
@@ -132,7 +133,7 @@
       await enviarAoGoogle({...data, id: pendingId, consentimento: true});
       await window.DGAds?.trackForm(pendingId);
       feedback.textContent = 'Solicitação recebida! Nossa equipe entrará em contato.';
-      const tipoVisivel = data.tipo === 'Landing page' ? 'Página de vendas' : data.tipo;
+      const tipoVisivel = data.tipo === 'Landing page' ? 'Site essencial' : data.tipo === 'Sistema digital' ? 'Site com sistema' : data.tipo;
       const message = `Olá! Meu nome é ${data.nome}. Gostaria de um orçamento para ${tipoVisivel}. Meu WhatsApp: ${data.telefone}.${data.mensagem ? ` Sobre o projeto: ${data.mensagem}` : ''}`;
       const destination = String(config.whatsapp || '').replace(/\D/g,'');
       form.reset(); $('#selected-plan').hidden = true; pendingKey = ''; pendingId = '';

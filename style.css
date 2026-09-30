@@ -51,3 +51,11 @@
 .site-header{box-shadow:0 5px 22px rgba(16,28,18,.055)}
 .hero-actions .button,.header-cta,.button-plan{box-shadow:0 8px 20px rgba(8,20,10,.12)}
 @media(max-width:760px){.hero h1{font-size:clamp(42px,10vw,58px)}.hero-proof{gap:8px 10px}.plan:hover{transform:none}.gallery-more .button{width:100%}}
+
+.plan .maintenance-price{min-height:0;margin:13px 0 0;font-size:12px;color:#4c6751;line-height:1.4}
+.plan .maintenance-price strong{font-size:14px;color:#203e27;white-space:nowrap}
+.plan.featured .maintenance-price,.plan.featured .maintenance-price strong{color:#d6fa45}
+.maintenance-note{margin-top:30px;background:#e8ede3;border:1px solid #d2decb;border-radius:11px;padding:23px 27px;color:#29432f}
+.maintenance-note strong{font:800 16px/1.4 var(--font)}
+.maintenance-note p{font-size:13px;line-height:1.7;margin:9px 0 0;max-width:960px}
+@media(max-width:760px){.maintenance-note{padding:20px}}
