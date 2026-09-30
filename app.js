@@ -28,12 +28,16 @@
   const grid = $('#model-grid');
   const filterBox = $('#model-filters');
   const search = $('#model-search');
+  const showAll = $('#show-all-models');
+  let expanded = false;
   filterBox.innerHTML = categories.map(item => `<button type="button" class="model-filter${item === category ? ' active' : ''}" data-category="${esc(item)}" aria-pressed="${item === category}">${esc(item)}</button>`).join('');
   function renderModels() {
     const term = norm(search.value.trim());
     const list = models.filter(([name,type]) => (category === 'Todos' || type === category) && (!term || norm(`${name} ${type}`).includes(term)));
-    grid.innerHTML = list.map(([name,type,slug]) => `<article class="model-card"><a class="model-shot-link" href="assets/sites/${slug}.webp?v=7" target="_blank" rel="noopener noreferrer" aria-label="Ampliar imagem do conceito ${esc(name)}"><img src="assets/sites/${slug}.webp?v=7" alt="Prévia ilustrativa da página inicial ${esc(name)}: identidade, navegação, chamada e botão" loading="lazy" width="1448" height="1086"></a><div class="model-info"><span>${esc(type)} · conceito visual ilustrativo</span><strong>${esc(name)}</strong><div class="model-actions"><a href="assets/sites/${slug}.webp?v=7" target="_blank" rel="noopener noreferrer">Ampliar imagem ↗</a><button type="button" data-model="${esc(name)}" aria-label="Pedir um site inspirado no conceito ${esc(name)}">Quero um parecido ↗</button></div></div></article>`).join('') || '<p class="model-empty">Nenhum modelo encontrado. Tente outro termo.</p>';
-    $('#model-count').textContent = `${list.length} ${list.length === 1 ? 'conceito ilustrativo' : 'conceitos ilustrativos'}`;
+    const visible = expanded || term || category !== 'Todos' ? list : list.slice(0, 6);
+    grid.innerHTML = visible.map(([name,type,slug]) => `<article class="model-card"><a class="model-shot-link" href="assets/sites/${slug}.webp?v=7" target="_blank" rel="noopener noreferrer" aria-label="Ampliar imagem do conceito ${esc(name)}"><img src="assets/sites/${slug}.webp?v=7" alt="Prévia ilustrativa da página inicial ${esc(name)}: identidade, navegação, chamada e botão" loading="lazy" width="1448" height="1086"></a><div class="model-info"><span>${esc(type)} · conceito visual ilustrativo</span><strong>${esc(name)}</strong><div class="model-actions"><a href="assets/sites/${slug}.webp?v=7" target="_blank" rel="noopener noreferrer">Ampliar imagem ↗</a><button type="button" data-model="${esc(name)}" aria-label="Pedir um site inspirado no conceito ${esc(name)}">Quero um parecido ↗</button></div></div></article>`).join('') || '<p class="model-empty">Nenhum modelo encontrado. Tente outro termo.</p>';
+    $('#model-count').textContent = visible.length === list.length ? `${list.length} ${list.length === 1 ? 'conceito ilustrativo' : 'conceitos ilustrativos'}` : `${visible.length} de ${list.length} conceitos ilustrativos`;
+    showAll.hidden = expanded || !!term || category !== 'Todos';
   }
   filterBox.addEventListener('click', event => {
     const button = event.target.closest('button[data-category]');
@@ -43,6 +47,7 @@
     renderModels();
   });
   search.addEventListener('input', renderModels);
+  showAll.addEventListener('click', () => {expanded = true;renderModels();});
   grid.addEventListener('click', event => {
     const button = event.target.closest('button[data-model]');
     if (!button) return;
@@ -137,7 +142,6 @@
         link.href = whatsappUrl;
         link.textContent = ' Abrir conversa no WhatsApp';
         feedback.append(link);
-        window.DGAds?.trackWhatsapp();
         window.location.assign(whatsappUrl);
       }
     } catch (error) {

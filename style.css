@@ -25,3 +25,29 @@
 .ticker{overflow:visible}.ticker-track{animation:none!important;transform:none!important;width:100%;min-width:0;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;white-space:normal;text-align:center}.ticker-track span{white-space:normal}.ticker-track b{flex:0 0 auto}
 @media(max-width:760px){.ticker-track{gap:8px 12px}.ticker-track span{font-size:10px}}
 #orcamento{scroll-margin-top:80px}.plan-selection{background:#e5f5bd;color:#20351c;border-radius:6px;padding:10px 12px;font-size:12px;font-weight:800}.plan-selection[hidden]{display:none}
+
+/* Refinamento da apresentação para visitantes vindos dos anúncios. */
+.hero h1{font-size:clamp(46px,4.55vw,70px);line-height:1.075;max-width:700px}
+.hero-description{max-width:600px}
+.hero-proof{line-height:1.5;gap:9px 12px}
+.proof-stamp{letter-spacing:.09em}
+.pricing{background:#f5f4ef}
+.pricing-heading>p{font-size:15px;line-height:1.65}
+.plan{background:#fff;border-color:#d5dbd1;box-shadow:0 14px 34px rgba(18,32,21,.06);transition:transform .2s,box-shadow .2s}
+.plan:hover{transform:translateY(-3px);box-shadow:0 19px 42px rgba(18,32,21,.12)}
+.plan.featured{background:#19261e;border-color:#19261e;color:#f7f8f3;box-shadow:0 20px 46px rgba(17,32,20,.2)}
+.plan.featured .plan-tag,.plan.featured>p,.plan.featured .price span{color:#d1dfcf}
+.plan.featured .plan-tag b{background:#d6fa45;color:#19261e}
+.plan.featured .price{border-color:#56715b}
+.plan.featured .plan li:before{color:#d6fa45}
+.plan.featured .button-plan{background:#d6fa45;color:#19261e}
+.plan.featured .button-plan:hover{background:#e5ff81}
+.plan .price strong{font-size:clamp(32px,3.4vw,45px)}
+.pricing-footnote{max-width:780px;line-height:1.55}
+.gallery-more{text-align:center;margin-top:32px}
+.gallery-more [hidden]{display:none}
+.button-outline-dark{border:1px solid #445b43;background:transparent;color:#203522;min-width:225px}
+.button-outline-dark:hover{background:#203522;color:#fff}
+.site-header{box-shadow:0 5px 22px rgba(16,28,18,.055)}
+.hero-actions .button,.header-cta,.button-plan{box-shadow:0 8px 20px rgba(8,20,10,.12)}
+@media(max-width:760px){.hero h1{font-size:clamp(42px,10vw,58px)}.hero-proof{gap:8px 10px}.plan:hover{transform:none}.gallery-more .button{width:100%}}
