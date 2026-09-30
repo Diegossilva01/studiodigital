@@ -28,18 +28,19 @@ function call(method, ...args) {
 function error(err, target='#panelMsg') {$(target).textContent=err.message;if(/Sessão expirada/.test(err.message)){store('');$('#app').hidden=true;$('#login').hidden=false;$('#loginMsg').textContent='Sua sessão expirou. Entre novamente.';contacts=[];}}
 function show() {$('#login').hidden=true;$('#app').hidden=false;}
 function node(tag,cls,text) {const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;}
-function phoneUrl(c) {let phone=c.telefone.replace(/\D/g,'');if(phone.length===10||phone.length===11)phone='55'+phone;return /^\d{10,15}$/.test(phone)?'https://wa.me/'+phone+'?text='+encodeURIComponent('Olá, '+c.nome+'! Sou da Agência DG. Recebemos sua solicitação sobre '+c.tipo+'. Podemos conversar sobre seu projeto?'):null;}
+function tipoLabel(tipo) {return tipo === 'Landing page' ? 'Página de vendas' : tipo;}
+function phoneUrl(c) {let phone=c.telefone.replace(/\D/g,'');if(phone.length===10||phone.length===11)phone='55'+phone;return /^\d{10,15}$/.test(phone)?'https://wa.me/'+phone+'?text='+encodeURIComponent('Olá, '+c.nome+'! Sou da Agência DG. Recebemos sua solicitação sobre '+tipoLabel(c.tipo)+'. Podemos conversar sobre seu projeto?'):null;}
 function date(value) {const d=new Date(value);return Number.isNaN(d.getTime())?value:d.toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',dateStyle:'short',timeStyle:'short'});}
 function render() {
  const waiting=contacts.filter(c=>c.status!=='Atendido').length,done=contacts.length-waiting;
  $('#total').textContent=contacts.length;$('#waiting').textContent=waiting;$('#done').textContent=done;$('#waitingBadge').textContent=waiting;$('#doneBadge').textContent=done;
  $('#sync').textContent=contacts.length+' de '+total+' contatos · Atualização a cada 30 s';
  $('#viewTitle').textContent=tab==='done'?'Atendidos':'Aguardando contato';$('#viewDescription').textContent=tab==='done'?'Histórico dos contatos que você já atendeu.':'Pessoas que enviaram uma solicitação pelo site.';
- const query=$('#search').value.trim().toLocaleLowerCase('pt-BR');const items=contacts.filter(c=>(tab==='done'?c.status==='Atendido':c.status!=='Atendido')&&[c.nome,c.telefone,c.tipo].some(v=>v.toLocaleLowerCase('pt-BR').includes(query)));
+ const query=$('#search').value.trim().toLocaleLowerCase('pt-BR');const items=contacts.filter(c=>(tab==='done'?c.status==='Atendido':c.status!=='Atendido')&&[c.nome,c.telefone,tipoLabel(c.tipo)].some(v=>v.toLocaleLowerCase('pt-BR').includes(query)));
  const list=$('#list');list.replaceChildren();
  if(!items.length)list.append(node('div','empty',query?'Nenhum contato encontrado.':tab==='done'?'Nenhum contato atendido ainda.':'Nenhum contato aguardando atendimento.'));
  items.forEach(c=>{
-  const card=node('article','contact');const head=node('div','contact-head');const info=node('div');info.append(node('h3','',c.nome),node('div','details',c.telefone+' · '+c.tipo+' · '+date(c.data)));head.append(info,node('span','badge'+(c.status==='Atendido'?' done':''),c.status==='Atendido'?'✓ Atendido':'◎ Aguardando'));card.append(head,node('p','message',c.mensagem||'Sem mensagem adicional.'));
+  const card=node('article','contact');const head=node('div','contact-head');const info=node('div');info.append(node('h3','',c.nome),node('div','details',c.telefone+' · '+tipoLabel(c.tipo)+' · '+date(c.data)));head.append(info,node('span','badge'+(c.status==='Atendido'?' done':''),c.status==='Atendido'?'✓ Atendido':'◎ Aguardando'));card.append(head,node('p','message',c.mensagem||'Sem mensagem adicional.'));
   const actions=node('div','actions');const url=phoneUrl(c);if(url){const a=node('a','btn wa','Conversar no WhatsApp ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';actions.append(a);}
   const mark=node('button','btn',c.status==='Atendido'?'↶ Voltar para aguardando':'✓ Pessoa atendida');const localMessage=node('p','feedback');
   mark.addEventListener('click',async()=>{mark.disabled=true;try{await call('atualizarContato',token,c.id,c.status==='Atendido'?'Novo':'Atendido',c.observacoes);c.status=c.status==='Atendido'?'Novo':'Atendido';render();}catch(err){localMessage.textContent=err.message;error(err);}finally{mark.disabled=false;}});actions.append(mark);

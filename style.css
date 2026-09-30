@@ -24,3 +24,4 @@
 /* Faixa de diferenciais fixa: texto legível em todas as telas. */
 .ticker{overflow:visible}.ticker-track{animation:none!important;transform:none!important;width:100%;min-width:0;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;white-space:normal;text-align:center}.ticker-track span{white-space:normal}.ticker-track b{flex:0 0 auto}
 @media(max-width:760px){.ticker-track{gap:8px 12px}.ticker-track span{font-size:10px}}
+#orcamento{scroll-margin-top:80px}.plan-selection{background:#e5f5bd;color:#20351c;border-radius:6px;padding:10px 12px;font-size:12px;font-weight:800}.plan-selection[hidden]{display:none}
