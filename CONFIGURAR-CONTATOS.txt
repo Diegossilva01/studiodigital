@@ -1,0 +1,34 @@
+AGÊNCIA DG — GIT + GOOGLE, SEM CONFIGURAR A VERCEL
+
+1. GOOGLE (obrigatório atualizar o código)
+Abra sua planilha > Extensões > Apps Script.
+Substitua o código antigo pelo conteúdo completo de google/Contatos.gs.
+Salve e execute configurar. Isso preserva os contatos existentes.
+Implantar > Gerenciar implantações > lápis (Editar).
+Em Versão, selecione Nova versão e clique em Implantar.
+Mantenha Executar como: Eu; acesso: Qualquer pessoa.
+Edite a implantação existente para manter o mesmo link /exec já incluído no site.
+Não basta salvar: é necessário publicar a nova versão.
+Mantenha a planilha privada; o script só recebe contatos, não lista os dados.
+
+2. GIT
+Suba o conteúdo deste ZIP na raiz do projeto e faça o commit.
+Preserve o seu config.js atual se já colocou WhatsApp, preços ou tags nele.
+Remova api/contatos.js da versão anterior. Se vercel.json contiver somente
+functions/api/contatos.js, remova-o também; preserve outras configurações suas.
+Não precisa criar variáveis, chave ou mexer no painel da Vercel.
+Se o Git já está ligado à hospedagem, aguarde a atualização automática.
+Também funciona em hospedagem estática como GitHub Pages.
+
+3. TESTE
+Abra o site publicado, preencha um contato de teste e clique em Enviar solicitação.
+A confirmação depende da gravação no Google, não apenas do clique.
+Confira a linha na aba Contatos. Sem checkbox nem login para o visitante.
+O WhatsApp abre após a confirmação se houver número configurado no config.js.
+Se a confirmação demorar, os campos continuam preenchidos para tentar de novo.
+A mesma tentativa na página mantém o ID para evitar duplicatas.
+
+Este é um formulário público de recebimento: não há chave secreta no navegador.
+Há validação dos campos, campo oculto contra bots simples e proteção de fórmulas.
+Não há CAPTCHA; esses cuidados não impedem todo spam automatizado.
+Código verificado localmente. O envio real exige atualizar sua implantação Google.
